@@ -22,6 +22,7 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
   
+<<<<<<< HEAD
   def self.find_by(parameters)
     # #parameters.each do |key, val|
     # #binding.pry
@@ -29,6 +30,16 @@ class InteractiveRecord
      DB[:conn].execute(sql)
     
    end
+=======
+  def self.find_by(parameters={})
+    # sql = "SELECT * FROM #{self.table_name} WHERE '#{x}' = '#{y}'"
+    # DB[:conn].execute(sql, x, y)
+    parameters.each do |key, val|
+      sql = "SELECT * FROM #{self.table_name} WHERE key = val"
+      DB[:conn].execute(sql, parameters)
+    end
+  end
+>>>>>>> be05afb1e91f20274d86b114ab5eb0295b47397e
   
   
   def self.column_names
